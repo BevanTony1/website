@@ -1,12 +1,10 @@
-import { Box, Flex, Text, IconButton, Link, Spacer, useColorMode, useColorModeValue, useDisclosure, Collapse, Center } from '@chakra-ui/react'
-
+import { Box, Button, Flex, Text, IconButton, Spacer, useColorMode, useColorModeValue, useDisclosure, Collapse, Center } from '@chakra-ui/react'
+import Link from 'next/link'
 import {
     HamburgerIcon,
     CloseIcon,
     SunIcon,
     MoonIcon,
-    ChevronDownIcon,
-    ChevronRightIcon,
 } from '@chakra-ui/icons';
 const Navbar = () => {
 
@@ -66,7 +64,8 @@ const DesktopNav = () => {
         <Flex>
             {NAV_ITEMS.map((item, key) => (
                 <Link key={key} href={item.href}>
-                    <Text p={'5'}>{item.label}</Text>
+                    <Text m={'2'} style={{ textDecoration: 'none' }} cursor='pointer'>{item.label}</Text>
+
                 </Link>
             ))}
         </Flex>
@@ -81,7 +80,7 @@ const MobileNav = () => {
 
                 {NAV_ITEMS.map((item, key) => (
                     <Link key={key} href={item.href}>
-                        <Text p={'3'}>{item.label}</Text>
+                        <Text >{item.label}</Text>
                     </Link>
                 ))}
             </Center>
