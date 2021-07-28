@@ -1,4 +1,4 @@
-import { Button, Center, Flex, Heading, Text } from '@chakra-ui/react'
+import { Button, Center, Container, Flex, Heading, Text } from '@chakra-ui/react'
 
 import { useAuth } from '../lib/auth'
 export default function Home() {
@@ -8,12 +8,11 @@ export default function Home() {
 
 
   return (
-    <div >
 
-
+    <Container>
       <Center flexDirection='column' justifyItems='center'>
 
-        <div><Heading>Main Content</Heading></div>
+        <Heading>Main Content</Heading>
 
         <div>
           <Text>Current User: {auth.user?.email}</Text>
@@ -21,7 +20,6 @@ export default function Home() {
         {(!auth.user) ? <Button backgroundColor={'blue.400'} onClick={(e) => auth.signinWithGithub()}>Signin</Button> : <Button bg={'blueviolet'} onClick={() => auth.signout()}>Sign Out</Button>}
 
       </Center>
-
-    </div >
+    </Container>
   )
 }
