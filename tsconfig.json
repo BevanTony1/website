@@ -24,7 +24,7 @@
     "**/*.tsx",
     "lib/auth.js",
     "pages/index.js"
-  ],
+, "pages/_document.js", "pages/_document.js", "styles/themes.ts"  ],
   "exclude": [
     "node_modules"
   ]
