@@ -1,25 +1,18 @@
-import { Button, Center, Container, Flex, Heading, Text } from '@chakra-ui/react'
+import { Button, Box, Center, Container, Flex, Heading, Text, useColorModeValue, useColorModePreference } from '@chakra-ui/react'
 
-import { useAuth } from '../lib/auth'
 export default function Home() {
-
-  const auth = useAuth()
-
 
 
   return (
 
-    <Container>
-      <Center flexDirection='column' justifyItems='center'>
+    <Container w={'90%'}>
+      <Box paddingTop={'10'} paddingBottom={'10'}>
 
-        <Heading>Main Content</Heading>
+        <Heading fontSize={'40'}>Hello! I'm Bevan Tony Medrano</Heading>
+        <Text color={useColorModeValue('gray.700', 'gray.500')} paddingTop={'8'}>I’m a try-hard web developer from the Philippines.</Text>
 
-        <div>
-          <Text>Current User: {auth.user?.email}</Text>
-        </div>
-        {(!auth.user) ? <Button backgroundColor={'blue.400'} onClick={(e) => auth.signinWithGithub()}>Signin</Button> : <Button bg={'blueviolet'} onClick={() => auth.signout()}>Sign Out</Button>}
 
-      </Center>
-    </Container>
+      </Box>
+    </Container >
   )
 }

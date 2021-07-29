@@ -97,15 +97,15 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
 
     {
-        label: 'Home',
+        label: 'About',
         href: '/',
     },
     {
-        label: 'About',
-        href: '/about'
+        label: 'Projects',
+        href: '/projects'
     },
     {
-        label: 'Dashboard',
-        href: '/dashboard'
+        label: 'Contact',
+        href: '/contact'
     }
 ]

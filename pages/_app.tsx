@@ -5,6 +5,7 @@ import customTheme from '../styles/themes'
 import Head from 'next/head'
 import { ChakraProvider } from '@chakra-ui/react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Head>
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </ProvideAuth>
     </ChakraProvider>
   )
