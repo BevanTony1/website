@@ -1,5 +1,9 @@
 import { IconButton, Center, Text, Stack, Divider, Box, Flex, Spacer, Container, useColorModeValue } from '@chakra-ui/react'
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
+import { IoLogoVercel, IoLogoFirebase } from 'react-icons/io5'
+import { BsFillLightningFill } from 'react-icons/bs'
+import { SiNextDotJs } from 'react-icons/si'
+import styles from '../styles/Footer.module.scss'
 import Link from 'next/link'
 
 const Footer = () => {
@@ -15,8 +19,8 @@ const Footer = () => {
 
 
             <Flex flexDirection='row' padding='5'>
-                <Text >
-                    Built with | Nextjs | Firebase | Vercel | Chakra-UI
+                <Text className={styles.textContainer} display='inline-block' verticalAlign='middle' >
+                    Built with | {<SiNextDotJs />} Nextjs | {<IoLogoFirebase />} Firebase | {<IoLogoVercel />} Vercel | Chakra-UI <BsFillLightningFill />
                 </Text>
                 <Spacer />
                 <Box>
@@ -30,7 +34,6 @@ const Footer = () => {
                     <Link href='https://www.linkedin.com/in/bevan-tony-medrano-544151179/' passHref>
                         <a target='_blank'>
                             <IconButton aria-label='Linkin Link'>
-
                                 <AiFillLinkedin />
                             </IconButton>
                         </a>
