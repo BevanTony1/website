@@ -1,6 +1,6 @@
 import { Container } from "@chakra-ui/layout"
 
-const Dashboard = () => {
+const Project = () => {
     return (
         <div>
             Hello dashbaord
@@ -8,4 +8,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Project

@@ -20,17 +20,21 @@ const Footer = () => {
                 </Text>
                 <Spacer />
                 <Box>
-                    <a target="_blank" href='https://github.com/Bevantootskie' >
-                        <IconButton marginRight={'3'} aria-label='Github Link'>
-                            <AiFillGithub />
-                        </IconButton>
-                    </a>
-                    <a target='_blank' href='https://www.linkedin.com/in/bevan-tony-medrano-544151179/'>
-                        <IconButton aria-label='Linkin Link'>
+                    <Link href='https://github.com/Bevantootskie' passHref>
+                        <a target='_blank' rel='noopenern'>
+                            <IconButton marginRight={'3'} aria-label='Github Link'>
+                                <AiFillGithub />
+                            </IconButton>
+                        </a>
+                    </Link>
+                    <Link href='https://www.linkedin.com/in/bevan-tony-medrano-544151179/' passHref>
+                        <a target='_blank'>
+                            <IconButton aria-label='Linkin Link'>
 
-                            <AiFillLinkedin />
-                        </IconButton>
-                    </a>
+                                <AiFillLinkedin />
+                            </IconButton>
+                        </a>
+                    </Link>
                 </Box>
             </Flex>
         </Container >
