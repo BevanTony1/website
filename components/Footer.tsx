@@ -11,7 +11,7 @@ const Footer = () => {
 
     return (
         <Container
-            borderTop={'1px'}
+            borderTop={'2px'}
             borderStyle={'solid'}
             borderColor={useColorModeValue('gray.200', 'gray.900')}
 
