@@ -10,7 +10,7 @@ const Guestbook = () => {
         <Center alignItems='center'>
 
             <Flex flexDirection='column'>
-                <Heading>Main Content</Heading>
+                <Heading>Guestbook</Heading>
 
                 <Text>Current User: {auth.user?.email}</Text>
                 {(!auth.user) ? <Button backgroundColor={'blue.400'} onClick={(e) => auth.signinWithGithub()}>Signin</Button> : <Button bg={'blueviolet'} onClick={() => auth.signout()}>Sign Out</Button>}

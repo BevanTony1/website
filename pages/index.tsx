@@ -1,11 +1,12 @@
 import { Spacer, IconButton, Stack, Avatar, Box, Center, Container, Flex, Heading, Text, useColorModeValue, useBreakpointValue, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, List, ListItem } from '@chakra-ui/react'
 import { differenceInCalendarYears } from 'date-fns'
 import { DiCss3 } from 'react-icons/di'
-import { SiMysql, SiPostgresql, SiNextDotJs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase } from 'react-icons/si'
+import { SiMysql, SiPostgresql, SiNextDotJs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript } from 'react-icons/si'
 import { BiPyramid } from 'react-icons/bi'
 import { IoLogoPython, IoLogoHtml5 } from 'react-icons/io'
 import style from '../styles/Home.module.scss'
 import { DiReact } from 'react-icons/di'
+import Contact from '../components/Contact'
 export default function Home() {
 
 
@@ -34,7 +35,7 @@ export default function Home() {
 
               borderRadius="full"
               src="me.jpg"
-              alt="Bevan Tony"
+              name="Bevan Tony"
             />
           </Box>
 
@@ -84,7 +85,7 @@ export default function Home() {
                     <IoLogoPython /> Python
                   </ListItem>
                   <ListItem>
-                    <SiJavascript /> JavaScript
+                    <SiJavascript />/<SiTypescript /> JavaScript/TypeScript
                   </ListItem>
                   <ListItem>
                     <IoLogoHtml5 /> HTML
@@ -141,6 +142,12 @@ export default function Home() {
 
 
       </Box>
+
+
+      <Box>
+        <Contact />
+      </Box>
+
     </Container >
   )
 }
