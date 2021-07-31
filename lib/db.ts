@@ -6,3 +6,8 @@ export function createUser(uid: string, data: object) {
     return firestore.collection('users').doc(uid).set({ uid, ...data }, { merge: true })
 
 }
+
+export function createMessage(data: object,) {
+    return firestore.collection('messages').add(data)
+
+}
