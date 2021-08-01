@@ -27,7 +27,7 @@ export default function Home() {
              </Text>
 
             <Text paddingTop="5" color={useColorModeValue('gray.700', 'gray.500')}>
-              While you're here let me know you dropped by. <NextLink href='/guestbook'><Link fontWeight='bold' color='blue.400'>Guest book</Link></NextLink>
+              While you&apos;re here let me know you dropped by. <NextLink href='/guestbook'><Link fontWeight='bold' color='blue.400'>Guest book</Link></NextLink>
             </Text>
           </Box>
 
