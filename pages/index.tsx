@@ -1,6 +1,7 @@
-import { Spacer, IconButton, Stack, Avatar, Box, Center, Container, Flex, Heading, Text, useColorModeValue, useBreakpointValue, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, List, ListItem } from '@chakra-ui/react'
+import { Spacer, IconButton, Stack, Avatar, Box, Link, Center, Container, Flex, Heading, Text, useColorModeValue, useBreakpointValue, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, List, ListItem, useColorMode } from '@chakra-ui/react'
 import { differenceInCalendarYears } from 'date-fns'
 import { DiCss3 } from 'react-icons/di'
+import NextLink from 'next/link'
 import { SiMysql, SiPostgresql, SiNextDotJs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript } from 'react-icons/si'
 import { BiPyramid } from 'react-icons/bi'
 import { IoLogoPython, IoLogoHtml5 } from 'react-icons/io'
@@ -21,9 +22,15 @@ export default function Home() {
               A try-hard web developer from the Philippines. With {differenceInCalendarYears(new Date(), new Date(2018, 9, 1))} years
              experience in developing applications. I enjoy building applications from scratch, take on challenges even with little knowledge
              about. And learning along the process.
+
+
              </Text>
 
+            <Text paddingTop="5" color={useColorModeValue('gray.700', 'gray.500')}>
+              While you're here let me know you dropped by. <NextLink href='/guestbook'><Link fontWeight='bold' color='blue.400'>Guest book</Link></NextLink>
+            </Text>
           </Box>
+
           <Spacer />
           <Box
           >
