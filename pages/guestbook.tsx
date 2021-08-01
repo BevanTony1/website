@@ -4,7 +4,8 @@ import { useAuth } from '../lib/auth'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { createMessage } from '../lib/db'
 import MessageSkeleton from '../components/MessageSkeleton'
-import { format, parseISO, compareDesc } from 'date-fns'
+import { useState } from 'react'
+import { format, parseISO } from 'date-fns'
 interface Inputs {
     message: string
 }
@@ -24,6 +25,7 @@ const Guestbook = () => {
 
     const auth = useAuth()
     const toast = useToast()
+    const testAuth = useState(true)
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<Inputs>();
     const { data, error } = useSWR('api/message')
 
@@ -76,8 +78,9 @@ const Guestbook = () => {
                         <Heading paddingBottom={'3'} fontSize={'30'}>Comments</Heading>
                         <Text paddingBottom={'5'}>Leave a message.</Text>
 
-
-                        {(!auth) ? <Button backgroundColor={'blue.400'} onClick={(e) => auth.signinWithGithub()}>Signin</Button> :
+                        {(!auth.user) ?
+                            <Button backgroundColor={'blue.400'} onClick={() => auth.signinWithGithub()}>Signin</Button>
+                            :
                             <Box borderRadius='lg' borderWidth={'1px'}>
                                 <Center>
                                     <Input placeholder={'Write a message'} {...register('message', { required: true })} ></Input>
