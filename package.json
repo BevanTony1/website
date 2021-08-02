@@ -17,6 +17,7 @@
     "firebase": "^8.8.0",
     "firebase-admin": "^9.11.0",
     "framer-motion": "^4.1.17",
+    "mailgun-js": "^0.22.0",
     "mailgun.js": "^3.5.2",
     "next": "11.0.1",
     "react": "17.0.2",

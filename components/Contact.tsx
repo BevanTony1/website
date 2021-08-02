@@ -36,8 +36,8 @@ const Contact = () => {
                 </Heading>
             </Center>
             <Stack onSubmit={handleSubmit(sendEmail)} as={'form'} margin={'5'} padding={'5'}>
-                <Input placeholder='Name' {...register('name')}></Input>
-                <Input placeholder='Email' {...register('email')}></Input>
+                <Input type='text' placeholder='Name' {...register('name')}></Input>
+                <Input type='email' placeholder='Email' {...register('email')}></Input>
                 <Textarea {...register('text')} placeholder='Message me.'></Textarea>,
                 <Center>
                     {!isLoading ? (<Button type='submit'>Submit</Button>) : (<Button disabled type='submit'>Submit</Button>)}

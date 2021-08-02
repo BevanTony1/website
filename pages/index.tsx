@@ -59,7 +59,7 @@ export default function Home() {
             < AccordionItem >
               <AccordionButton>
                 <Box flex="1" textAlign="left">
-                  <Text>Frameworks</Text>
+                  <Text fontWeight="bold">Frameworks</Text>
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
@@ -82,7 +82,7 @@ export default function Home() {
             < AccordionItem >
               <AccordionButton>
                 <Box flex="1" textAlign="left">
-                  <Text>Languages</Text>
+                  <Text fontWeight='bold'>Languages</Text>
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
@@ -112,7 +112,7 @@ export default function Home() {
             < AccordionItem >
               <AccordionButton>
                 <Box flex="1" textAlign="left">
-                  <Text >Tools</Text>
+                  <Text fontWeight='bold'>Tools</Text>
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
