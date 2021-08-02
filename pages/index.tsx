@@ -53,7 +53,7 @@ export default function Home() {
         <Stack>
 
           <Heading paddingTop='10'>
-            Skills
+            Tech Stack
           </Heading>
           <Accordion className={style.accordionContainer} defaultIndex={[0]} allowMultiple>
             < AccordionItem >
