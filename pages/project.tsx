@@ -1,8 +1,12 @@
+import { Text, Container, Center, Heading } from '@chakra-ui/react'
+
 const Project = () => {
     return (
-        <div>
-            Project
-        </div>
+        <Container display='flex' justifyContent='center' height='50vh' width='100vw'>
+            <Center >
+                <Heading>Occupy me. 🥺</Heading>
+            </Center>
+        </Container >
     )
 }
 
