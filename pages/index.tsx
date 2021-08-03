@@ -2,11 +2,13 @@ import { Spacer, IconButton, Stack, Avatar, Box, Link, Center, Container, Flex, 
 import { differenceInCalendarYears } from 'date-fns'
 import { DiCss3 } from 'react-icons/di'
 import NextLink from 'next/link'
-import { SiMysql, SiPostgresql, SiNextDotJs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript } from 'react-icons/si'
+import { SiSpotify, SiMysql, SiPostgresql, SiNextDotJs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript } from 'react-icons/si'
+
 import { BiPyramid } from 'react-icons/bi'
 import { IoLogoPython, IoLogoHtml5 } from 'react-icons/io'
 import style from '../styles/Home.module.scss'
 import { DiReact } from 'react-icons/di'
+import SpotifyNowPlaying from '../components/SpotifyNowPlaying'
 import Contact from '../components/Contact'
 export default function Home() {
 
@@ -22,8 +24,6 @@ export default function Home() {
               A try-hard web developer from the Philippines. With {differenceInCalendarYears(new Date(), new Date(2018, 9, 1))} years
              experience in developing applications. I enjoy building applications from scratch, take on challenges even with little knowledge
              about. And learning along the process.
-
-
              </Text>
 
             <Text paddingTop="5" color={useColorModeValue('gray.700', 'gray.500')}>
@@ -37,6 +37,7 @@ export default function Home() {
 
             <Avatar
               marginLeft={'5'}
+
               size='lg'
               boxSize={200}
 
@@ -136,10 +137,19 @@ export default function Home() {
                   <ListItem>
                     <SiMysql /> Mysql
                   </ListItem>
-
-
-
-
+                </List>
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  <Text fontWeight='bold'>Spotify - Listening to...</Text>
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+              <AccordionPanel>
+                <List>
+                  <ListItem><SpotifyNowPlaying /></ListItem>
                 </List>
               </AccordionPanel>
             </AccordionItem>
