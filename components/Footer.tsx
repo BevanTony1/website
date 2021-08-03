@@ -4,6 +4,7 @@ import { IoLogoVercel, IoLogoFirebase } from 'react-icons/io5'
 import { BsFillLightningFill } from 'react-icons/bs'
 import { SiNextDotJs } from 'react-icons/si'
 import styles from '../styles/Footer.module.scss'
+import { getYear } from 'date-fns'
 import Link from 'next/link'
 
 const Footer = () => {
@@ -19,9 +20,15 @@ const Footer = () => {
 
 
             <Flex flexDirection='row' padding='5'>
-                <Text className={styles.textContainer} display='inline-block' verticalAlign='middle' >
-                    Built with | {<SiNextDotJs />} Nextjs | {<IoLogoFirebase />} Firebase | {<IoLogoVercel />} Vercel | Chakra-UI <BsFillLightningFill />
-                </Text>
+                <Stack>
+                    <Text className={styles.textContainer} display='inline-block' verticalAlign='middle' >
+                        Built with | {<SiNextDotJs />} Nextjs | {<IoLogoFirebase />} Firebase | {<IoLogoVercel />} Vercel | Chakra-UI <BsFillLightningFill />
+                    </Text>
+
+                    <Box>
+                        <Text fontWeight='hairline'>© bevantony {getYear(new Date())}</Text>
+                    </Box>
+                </Stack>
                 <Spacer />
                 <Box>
                     <Link href='https://github.com/Bevantootskie' passHref>
@@ -39,6 +46,7 @@ const Footer = () => {
                         </a>
                     </Link>
                 </Box>
+
             </Flex>
         </Container >
     )
