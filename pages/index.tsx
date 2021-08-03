@@ -37,7 +37,6 @@ export default function Home() {
 
             <Avatar
               marginLeft={'5'}
-
               size='lg'
               boxSize={200}
 
@@ -140,9 +139,9 @@ export default function Home() {
                 </List>
               </AccordionPanel>
             </AccordionItem>
-            <AccordionItem>
-              <AccordionButton>
-                <Box flex="1" textAlign="left">
+            <AccordionItem >
+              <AccordionButton bg={'green.600'} >
+                <Box flex="1" textAlign="left" >
                   <Text fontWeight='bold'>Spotify - Listening to...</Text>
                 </Box>
                 <AccordionIcon />

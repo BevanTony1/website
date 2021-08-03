@@ -1,7 +1,5 @@
 import styles from '../styles/Spotify.module.scss'
-import { Box, Center, Text, Stack, Flex, Image } from '@chakra-ui/react'
-// import Image from 'next/image'
-import SpotifySkeleton from './SpotifySkeleton'
+import { Box, Text, Stack, Flex, Image } from '@chakra-ui/react'
 import useSWR from 'swr'
 
 const SpotifyNowPlaying = () => {
@@ -21,7 +19,7 @@ const SpotifyNowPlaying = () => {
 
     <Flex flexDirection='row' paddingLeft='5' paddingTop='5'>
       <div className={styles.imageContainer}>
-        <Image src={data.albumImageUrl} height='150' width='150' />
+        <Image src={data.albumImageUrl} alt='Spotify' height='150' width='150' />
       </div>
       <Stack paddingLeft='5' display='flex' justifyContent='center' fontFamily='monospace' paddingBottom='4'>
         <Text paddingTop='2'>Album: {data.album}</Text>
