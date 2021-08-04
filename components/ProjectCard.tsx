@@ -11,7 +11,6 @@ interface PropsData {
 }
 
 const Project = (props: PropsData) => {
-    console.log(props)
     return (
         <Box cursor='pointer' maxW='400' boxShadow='2xl' borderWidth='1px' borderRadius='lg' >
             <Link href={props.repository}>
@@ -19,7 +18,7 @@ const Project = (props: PropsData) => {
                     <Image src={props.image} alt='Img' height='225' width='400' />
                     <Box padding='3'>
                         <Heading fontSize='20' fontWeight='bold'>{props.title}</Heading>
-                        <Text fontSize='15'>{props.description}</Text>
+                        <Text textAlign='left' fontSize='15'>{props.description}</Text>
                     </Box>
                 </Flex>
 

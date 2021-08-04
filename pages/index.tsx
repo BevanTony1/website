@@ -10,6 +10,7 @@ import style from '../styles/Home.module.scss'
 import { DiReact } from 'react-icons/di'
 import SpotifyNowPlaying from '../components/SpotifyNowPlaying'
 import Contact from '../components/Contact'
+import { format, parseISO } from 'date-fns'
 export default function Home() {
 
 
@@ -22,7 +23,7 @@ export default function Home() {
             <Heading fontSize={'40'}>Hi! I&apos;m Bevan Tony Medrano.</Heading>
             <Text fontSize='md' color={useColorModeValue('gray.700', 'gray.500')} paddingTop={'5'}>
               A try-hard web developer from the Philippines. With {differenceInCalendarYears(new Date(), new Date(2018, 9, 1))} years
-             experience in developing applications. I enjoy building applications from scratch, take on challenges even with little knowledge
+             experience in developing applications. I enjoy building applications from scratch, Willing to take on any challenge even with little knowledge
              about. And learning along the process.
              </Text>
 
@@ -49,6 +50,56 @@ export default function Home() {
           <Box>
           </Box>
         </Flex>
+
+        <Stack paddingTop='10'>
+          <Heading>
+            Experience
+          </Heading>
+          <Accordion allowToggle className={style.accordionContainer} defaultIndex={[0]}>
+            <AccordionItem>
+              <AccordionButton _expanded={{ bg: "blue.200", color: "white" }}>
+                <Box flex="1" textAlign="left">
+                  <Text fontWeight='bold'>{format(new Date(2019, 6, 1), 'PPPP')} - {format(new Date(2021, 4, 31), 'PPPP')}</Text>
+                </Box>
+                <AccordionIcon />
+              </AccordionButton >
+              <AccordionPanel pb={4}>
+                <List>
+                  <ListItem ><Text display='inline-block' fontWeight='bold'>Systems Developer </Text> @ Gaisano Unipace Corporation</ListItem>
+                </List>
+              </AccordionPanel>
+            </AccordionItem>
+
+            <AccordionItem>
+              <AccordionButton _expanded={{ bg: "blue.200", color: "white" }}>
+                <Box flex="1" textAlign="left">
+                  <Text fontWeight='bold'>{format(new Date(2019, 0, 16), 'PPPP')} - {format(new Date(2019, 5, 30), 'PPPP')} </Text>
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+              <AccordionPanel pb={4}>
+                <List>
+                  <ListItem ><Text display='inline-block' fontWeight='bold'>Junior Web Developer </Text> @ Gaisano Unipace Corporation</ListItem>
+                </List>
+              </AccordionPanel>
+            </AccordionItem>
+
+            <AccordionItem>
+              <AccordionButton _expanded={{ bg: "blue.200", color: "white" }}>
+                <Box flex="1" textAlign="left">
+                  <Text fontWeight='bold'>{format(new Date(2018, 8, 1), 'PPPP')} - {format(new Date(2019, 0, 15), 'PPPP')} </Text>
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+              <AccordionPanel pb={4}>
+                <List>
+                  <ListItem ><Text display='inline-block' fontWeight='bold'>Implementation Specialist </Text> @ Gaisano Unipace Corporation</ListItem>
+                </List>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
+        </Stack>
+
 
         <Stack>
 
@@ -141,7 +192,7 @@ export default function Home() {
             </AccordionItem>
             <Tooltip hasArrow placement='auto' label="Can't code without my Jam." aria-label="A tooltip">
               <AccordionItem >
-                <AccordionButton bg={'green.600'} >
+                <AccordionButton bg={useColorModeValue('green.200', 'green.600')} >
                   <Box flex="1" textAlign="left" >
                     <Text fontWeight='bold'>Spotify - Listening to...</Text>
                   </Box>

@@ -64,7 +64,7 @@ const DesktopNav = () => {
         <Flex>
             {NAV_ITEMS.map((item, key) => (
                 <Link key={key} href={item.href}>
-                    <Text m={'2'} style={{ textDecoration: 'none' }} cursor='pointer'>{item.label}</Text>
+                    <Text fontWeight='bold' m={'2'} style={{ textDecoration: 'none' }} cursor='pointer'>{item.label}</Text>
 
                 </Link>
             ))}
@@ -80,7 +80,7 @@ const MobileNav = () => {
 
                 {NAV_ITEMS.map((item, key) => (
                     <Link key={key} href={item.href}>
-                        <Text >{item.label}</Text>
+                        <Text fontWeight='bold'>{item.label}</Text>
                     </Link>
                 ))}
             </Center>
