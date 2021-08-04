@@ -1,8 +1,8 @@
-import { Spacer, IconButton, Stack, Avatar, Box, Link, Center, Container, Flex, Heading, Text, useColorModeValue, useBreakpointValue, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, List, ListItem, useColorMode } from '@chakra-ui/react'
+import { Spacer, IconButton, Tooltip, Stack, Avatar, Box, Link, Center, Container, Flex, Heading, Text, useColorModeValue, useBreakpointValue, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, List, ListItem, useColorMode } from '@chakra-ui/react'
 import { differenceInCalendarYears } from 'date-fns'
 import { DiCss3 } from 'react-icons/di'
 import NextLink from 'next/link'
-import { SiSpotify, SiMysql, SiPostgresql, SiNextDotJs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript } from 'react-icons/si'
+import { SiMysql, SiPostgresql, SiNextDotJs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript } from 'react-icons/si'
 
 import { BiPyramid } from 'react-icons/bi'
 import { IoLogoPython, IoLogoHtml5 } from 'react-icons/io'
@@ -139,19 +139,21 @@ export default function Home() {
                 </List>
               </AccordionPanel>
             </AccordionItem>
-            <AccordionItem >
-              <AccordionButton bg={'green.600'} >
-                <Box flex="1" textAlign="left" >
-                  <Text fontWeight='bold'>Spotify - Listening to...</Text>
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-              <AccordionPanel>
-                <List>
-                  <ListItem><SpotifyNowPlaying /></ListItem>
-                </List>
-              </AccordionPanel>
-            </AccordionItem>
+            <Tooltip hasArrow placement='auto' label="Can't code without my Jam." aria-label="A tooltip">
+              <AccordionItem >
+                <AccordionButton bg={'green.600'} >
+                  <Box flex="1" textAlign="left" >
+                    <Text fontWeight='bold'>Spotify - Listening to...</Text>
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel>
+                  <List>
+                    <ListItem><SpotifyNowPlaying /></ListItem>
+                  </List>
+                </AccordionPanel>
+              </AccordionItem>
+            </Tooltip>
           </Accordion>
 
         </Stack>
