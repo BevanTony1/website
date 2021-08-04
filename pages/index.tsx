@@ -1,4 +1,4 @@
-import { Spacer, IconButton, Tooltip, Stack, Avatar, Box, Link, Center, Container, Flex, Heading, Text, useColorModeValue, useBreakpointValue, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, List, ListItem, useColorMode } from '@chakra-ui/react'
+import { Spacer, IconButton, Tooltip, Stack, Avatar, Box, Link, Center, Container, Flex, Heading, Text, useColorModeValue, useBreakpointValue, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, List, ListItem, useColorMode, Tag } from '@chakra-ui/react'
 import { differenceInCalendarYears } from 'date-fns'
 import { DiCss3 } from 'react-icons/di'
 import NextLink from 'next/link'
@@ -53,19 +53,19 @@ export default function Home() {
 
         <Stack paddingTop='10'>
           <Heading>
-            Experience
+            Work Experience
           </Heading>
-          <Accordion allowToggle className={style.accordionContainer} defaultIndex={[0]}>
+          <Accordion allowToggle className={style.accordionContainer}>
             <AccordionItem>
               <AccordionButton _expanded={{ bg: "blue.200", color: "white" }}>
-                <Box flex="1" textAlign="left">
-                  <Text fontWeight='bold'>{format(new Date(2019, 6, 1), 'PPPP')} - {format(new Date(2021, 4, 31), 'PPPP')}</Text>
+                <Box flex="1" textAlign="left" display='inline-block'>
+                  <Text fontWeight='bold'>{format(new Date(2019, 6, 1), 'PPPP')} - {format(new Date(2021, 4, 31), 'PPPP')}  <Tag bg='green.600' color='black'>Recent</Tag></Text>
                 </Box>
                 <AccordionIcon />
               </AccordionButton >
               <AccordionPanel pb={4}>
                 <List>
-                  <ListItem ><Text display='inline-block' fontWeight='bold'>Systems Developer </Text> @ Gaisano Unipace Corporation</ListItem>
+                  <ListItem ><Text display='inline-block' fontWeight='bold'>Mid Systems Developer </Text> @ Gaisano Unipace Corporation</ListItem>
                 </List>
               </AccordionPanel>
             </AccordionItem>
@@ -79,7 +79,7 @@ export default function Home() {
               </AccordionButton>
               <AccordionPanel pb={4}>
                 <List>
-                  <ListItem ><Text display='inline-block' fontWeight='bold'>Junior Web Developer </Text> @ Gaisano Unipace Corporation</ListItem>
+                  <ListItem ><Text display='inline-block' fontWeight='bold'>Junior Systems Developer </Text> @ Gaisano Unipace Corporation</ListItem>
                 </List>
               </AccordionPanel>
             </AccordionItem>
