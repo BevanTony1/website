@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Stack, Center, Input, Heading, Textarea } from '@chakra-ui/react'
+import { Button, InputLeftAddon, Stack, Center, Input, Heading, Textarea, InputGroup } from '@chakra-ui/react'
 import { useForm } from "react-hook-form";
 interface Inputs {
     email: string;
@@ -38,12 +38,16 @@ const Contact = () => {
             <Stack onSubmit={handleSubmit(sendEmail)} as={'form'} margin={'5'} padding={'5'}>
                 <Input type='text' placeholder='Name' {...register('name')}></Input>
                 <Input type='email' placeholder='Email' {...register('email')}></Input>
+                <InputGroup gridGap='3' flexDirection={{ base: 'column', lg: 'row' }}>
+                    <Input value='medranobevantony@gmail.com'></Input>
+                    <Input value='+639067281993'></Input>
+                </InputGroup>
                 <Textarea {...register('text')} placeholder='Message me.'></Textarea>,
-                <Center>
+            <Center>
                     {!isLoading ? (<Button type='submit'>Submit</Button>) : (<Button disabled type='submit'>Submit</Button>)}
                 </Center>
             </Stack>
-        </Stack>
+        </Stack >
 
     )
 }

@@ -1,16 +1,16 @@
-import { Spacer, IconButton, Tooltip, Stack, Avatar, Box, Link, Center, Container, Flex, Heading, Text, useColorModeValue, useBreakpointValue, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, List, ListItem, useColorMode, Tag } from '@chakra-ui/react'
+import { Spacer, Button, IconButton, Tooltip, Stack, Avatar, Box, Link, Center, Container, Flex, Heading, Text, useColorModeValue, useBreakpointValue, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, List, ListItem, useColorMode, Tag } from '@chakra-ui/react'
 import { differenceInCalendarYears } from 'date-fns'
-import { DiCss3 } from 'react-icons/di'
 import NextLink from 'next/link'
+import { DiCss3 } from 'react-icons/di'
 import { SiMysql, SiPostgresql, SiNextDotJs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript } from 'react-icons/si'
-
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 import { BiPyramid } from 'react-icons/bi'
 import { IoLogoPython, IoLogoHtml5 } from 'react-icons/io'
 import style from '../styles/Home.module.scss'
 import { DiReact } from 'react-icons/di'
 import SpotifyNowPlaying from '../components/SpotifyNowPlaying'
 import Contact from '../components/Contact'
-import { format, parseISO } from 'date-fns'
+import { format } from 'date-fns'
 export default function Home() {
 
 
@@ -18,7 +18,7 @@ export default function Home() {
 
     <Container maxW='container.md'>
       <Box paddingTop={'10'} paddingBottom={'10'}>
-        <Flex flexDirection={useBreakpointValue({ base: 'column', md: 'row' })} >
+        <Flex alignItems='center' flexDirection={useBreakpointValue({ base: 'column-reverse', md: 'row' })} >
           <Box>
             <Heading fontSize={'40'}>Hi! I&apos;m Bevan Tony Medrano.</Heading>
             <Text fontSize='md' color={useColorModeValue('gray.700', 'gray.500')} paddingTop={'5'}>
@@ -30,11 +30,27 @@ export default function Home() {
             <Text paddingTop="5" color={useColorModeValue('gray.700', 'gray.500')}>
               While you&apos;re here let me know you dropped by. <NextLink href='/guestbook'><Link fontWeight='bold' color='blue.400'>Guest book</Link></NextLink>
             </Text>
+
+            <Flex paddingTop='5' paddingBottom='5' >
+
+              <NextLink href='https://github.com/Bevantootskie' passHref>
+                <a target='_blank' rel='noopenern'>
+                  <IconButton marginRight={'3'} aria-label='Github Link'>
+                    <AiFillGithub />
+                  </IconButton>
+                </a>
+              </NextLink>
+              <NextLink href='https://www.linkedin.com/in/bevan-tony-medrano-544151179/' passHref>
+                <a target='_blank'>
+                  <IconButton aria-label='Linkin Link'>
+                    <AiFillLinkedin />
+                  </IconButton>
+                </a>
+              </NextLink>
+            </Flex>
           </Box>
 
-          <Spacer />
-          <Box
-          >
+          <Box paddingBottom='5'>
 
             <Avatar
               marginLeft={'5'}
@@ -47,6 +63,7 @@ export default function Home() {
             />
           </Box>
 
+
           <Box>
           </Box>
         </Flex>
@@ -55,9 +72,9 @@ export default function Home() {
           <Heading>
             Work Experience
           </Heading>
-          <Accordion allowToggle className={style.accordionContainer}>
+          <Accordion allowMultiple className={style.accordionContainer}>
             <AccordionItem>
-              <AccordionButton _expanded={{ bg: "blue.200", color: "white" }}>
+              <AccordionButton _expanded={{ bg: "blue.200", color: "black" }}>
                 <Box flex="1" textAlign="left" display='inline-block'>
                   <Text fontWeight='bold'>{format(new Date(2019, 6, 1), 'PPP')} - {format(new Date(2021, 4, 31), 'PPP')}  <Tag bg='green.600' color='black'>Recent</Tag></Text>
                 </Box>
