@@ -15,14 +15,14 @@ export default async function name(req: NextApiRequest, res: NextApiResponse) {
 
 
     try {
-        response = await mailgun.messages().send({
-            to: 'medranobevantony@gmail.com',
-            from: req.body.email,
-            subject: req.body.name,
-            text: req.body.text
-        });
-    } catch (error) {
-        return res.status(error.statusCode || 500).json({ error: error.message });
+      response = await mailgun.messages().send({
+        to: "medranobevantony@gmail.com",
+        from: req.body.email,
+        subject: req.body.name,
+        text: req.body.text,
+      });
+    } catch (error:any) {
+      return res.status(error.statusCode || 500).json({ error: error.message });
     }
 
     return res.status(200).json({ result: response.message });

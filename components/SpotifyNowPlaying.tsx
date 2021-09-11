@@ -9,10 +9,10 @@ const SpotifyNowPlaying = () => {
 
   if (!data || data.isPlaying == false) {
     return (
-      <Box paddingTop='3'>
-        <Text fontWeight='medium'>Not Playing...</Text>
+      <Box paddingTop="3">
+        <Text fontWeight="medium">Not Playing...</Text>
       </Box>
-    )
+    );
   }
 
   return (
