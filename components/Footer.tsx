@@ -1,54 +1,41 @@
-import { IconButton, Center, Text, Stack, Divider, Box, Flex, Spacer, Container, useColorModeValue } from '@chakra-ui/react'
-import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
-import { IoLogoVercel, IoLogoFirebase } from 'react-icons/io5'
-import { BsFillLightningFill } from 'react-icons/bs'
-import { SiNextDotJs } from 'react-icons/si'
-import styles from '../styles/Footer.module.scss'
+import { IoLogoVercel } from 'react-icons/io5'
+import { SiNextdotjs, SiShadcnui } from 'react-icons/si'
 import { getYear } from 'date-fns'
-import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { SOCIALS } from '@/data/socials'
+
+const BUILT_WITH = [
+    { icon: <SiNextdotjs />, label: 'Next.js' },
+    { icon: <IoLogoVercel />, label: 'Vercel' },
+    { icon: <SiShadcnui />, label: 'shadcn/ui' },
+]
 
 const Footer = () => {
-
-
     return (
-        <Container
-            borderTop={'2px'}
-            borderStyle={'solid'}
-            borderColor={useColorModeValue('gray.200', 'gray.900')}
-
-            maxW="container.lg">
-
-
-            <Flex flexDirection='row' padding='5'>
-                <Stack>
-                    <Text className={styles.textContainer} display='inline-block' verticalAlign='middle' >
-                        Built with | {<SiNextDotJs />} Nextjs | {<IoLogoFirebase />} Firebase | {<IoLogoVercel />} Vercel | Chakra-UI <BsFillLightningFill />
-                    </Text>
-
-                    <Box>
-                        <Text fontWeight='hairline'>© bevantony {getYear(new Date())}</Text>
-                    </Box>
-                </Stack>
-                <Spacer />
-                <Box>
-                    <Link href='https://github.com/Bevantootskie' passHref>
-                        <a target='_blank' rel='noopenern'>
-                            <IconButton marginRight={'3'} aria-label='Github Link'>
-                                <AiFillGithub />
-                            </IconButton>
-                        </a>
-                    </Link>
-                    <Link href='https://www.linkedin.com/in/bevan-tony-medrano-544151179/' passHref>
-                        <a target='_blank'>
-                            <IconButton aria-label='Linkin Link'>
-                                <AiFillLinkedin />
-                            </IconButton>
-                        </a>
-                    </Link>
-                </Box>
-
-            </Flex>
-        </Container >
+        <footer className="mt-24 border-t border-border/60">
+            <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col gap-2">
+                    <p className="text-sm font-medium">© {getYear(new Date())} Bevan Tony Medrano</p>
+                    <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
+                        Built with
+                        {BUILT_WITH.map((item) => (
+                            <span key={item.label} className="inline-flex items-center gap-1">
+                                {item.icon} {item.label}
+                            </span>
+                        ))}
+                    </p>
+                </div>
+                <div className="flex gap-1">
+                    {SOCIALS.map((social) => (
+                        <Button key={social.href} asChild variant="ghost" size="icon" aria-label={`${social.label} Link`}>
+                            <a href={social.href} target="_blank" rel="noopener noreferrer">
+                                {social.icon}
+                            </a>
+                        </Button>
+                    ))}
+                </div>
+            </div>
+        </footer>
     )
 }
 

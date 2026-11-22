@@ -1,20 +1,17 @@
-import ProjectCard from '../../components/ProjectCard'
-import { Text, Stack, Container, Center, Heading, Box, Flex, SimpleGrid } from '@chakra-ui/react'
-import data from '../../public/projects'
+import ProjectCard from '@/components/ProjectCard'
+import Section from '@/components/Section'
+import { PROJECTS } from '@/data/projects'
 
-const Project = () => {
+const Projects = () => (
+    <main className="mx-auto w-full max-w-3xl px-4 pt-4">
+        <Section eyebrow="Portfolio" title="Projects" description="A few things I've built and contributed to.">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                {PROJECTS.map((project) => (
+                    <ProjectCard key={project.repository} {...project} />
+                ))}
+            </div>
+        </Section>
+    </main>
+)
 
-    return (
-        <Stack paddingTop='10' paddingBottom='5' justifyContent='center'>
-            <Center >
-                <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} gridGap={{ base: 3, sm: 3, md: 5, lg: 5 }}>
-                    {data.map((item, key) => (
-                        <ProjectCard {...item} key={key} />
-                    ))}
-                </SimpleGrid>
-            </Center>
-        </Stack >
-    )
-}
-
-export default Project
+export default Projects

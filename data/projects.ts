@@ -1,6 +1,12 @@
-const projects = [
-    {
+export interface Project {
+    title: string
+    description: string
+    repository: string
+    image: string
+}
 
+export const PROJECTS: Project[] = [
+    {
         title: 'Gaisano Grocery System',
         image: '/gaisanosystem.png',
         description: 'While working for Unipace Corp. Contributed in the development of Gaisano Grocery System using Frappe ERPNext Framework. The system handles sale tracking, inventory and reports of the company',
@@ -11,8 +17,5 @@ const projects = [
         image: '/twitterclone.png',
         description: 'Simple Twitter Clone demonstrating CRUD operations using NextJS framework, Prisma as an ORM to handle the backend end and Posgres as the Database.',
         repository: 'https://github.com/Bevantootskie/nextjs-ts-twitter-clone',
-
-    }
+    },
 ]
-
-export default projects

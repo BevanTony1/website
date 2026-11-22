@@ -1,93 +1,12 @@
-import { Box, Button, Flex, Text, IconButton, Spacer, useColorMode, useColorModeValue, useDisclosure, Collapse, Center } from '@chakra-ui/react'
+import { useState } from 'react'
+import { flushSync } from 'react-dom'
 import Link from 'next/link'
-import {
-    HamburgerIcon,
-    CloseIcon,
-    SunIcon,
-    MoonIcon,
-} from '@chakra-ui/icons';
-const Navbar = () => {
-
-    const { isOpen, onToggle } = useDisclosure()
-    const { colorMode, toggleColorMode } = useColorMode()
-    return (
-        <>
-
-            <Flex
-                bg={useColorModeValue('white', 'gray.800')}
-                color={useColorModeValue('gray.600', 'white')}
-                minH={'60px'}
-                variant={'ghost'}
-                py={{ base: 2 }}
-                px={{ base: 4 }}
-                borderBottom={1}
-                borderStyle={'solid'}
-                borderColor={useColorModeValue('gray.200', 'gray.900')}
-                align={'center'}>
-                <Flex
-                    flex={{ base: 1, md: 'auto' }}
-                    ml={{ base: -2 }}
-                    display={{ base: 'flex', md: 'none' }}
-                >
-                    <IconButton
-                        onClick={onToggle}
-                        icon={
-                            isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-                        }
-                        variant={'ghost'}
-                        aria-label={'Toggle Navigation'}
-                    />
-                </Flex>
-                <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-                    <DesktopNav />
-                </Flex>
-                <Spacer />
-                <IconButton onClick={toggleColorMode} aria-label="Toggle Theme" variant={'outline'}>
-                    {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
-
-                </IconButton>
-            </Flex >
-            <Collapse in={isOpen} animateOpacity>
-                <MobileNav />
-            </Collapse>
-
-        </>
-
-    )
-}
-
-export default Navbar
-
-
-const DesktopNav = () => {
-    return (
-        <Flex>
-            {NAV_ITEMS.map((item, key) => (
-                <Link key={key} href={item.href}>
-                    <Text fontWeight='bold' m={'2'} style={{ textDecoration: 'none' }} cursor='pointer'>{item.label}</Text>
-
-                </Link>
-            ))}
-        </Flex>
-    )
-}
-
-
-const MobileNav = () => {
-    return (
-        <Box py={2}>
-            <Center flexDirection={'column'}>
-
-                {NAV_ITEMS.map((item, key) => (
-                    <Link key={key} href={item.href}>
-                        <Text fontWeight='bold'>{item.label}</Text>
-                    </Link>
-                ))}
-            </Center>
-        </Box>
-    )
-}
-
+import { useRouter } from 'next/router'
+import { useTheme } from 'next-themes'
+import { MenuIcon, MoonIcon, SunIcon, XIcon } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import { Collapsible, CollapsibleContent } from '@/components/ui/collapsible'
 
 interface NavItem {
     label: string,
@@ -95,13 +14,102 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-
-    {
-        label: 'About',
-        href: '/',
-    },
-    {
-        label: 'Projects',
-        href: '/project'
-    },
+    { label: 'About', href: '/' },
+    { label: 'Projects', href: '/project' },
 ]
+
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false)
+    const { resolvedTheme, setTheme } = useTheme()
+    const { pathname } = useRouter()
+
+    // Cross-fade between themes where the browser supports View Transitions;
+    // otherwise (or with reduced motion) it switches instantly as before.
+    const toggleTheme = () => {
+        const next = resolvedTheme === 'dark' ? 'light' : 'dark'
+        const apply = () => {
+            flushSync(() => setTheme(next))
+            document.documentElement.classList.toggle('dark', next === 'dark')
+        }
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        if (!document.startViewTransition || reduceMotion) {
+            apply()
+            return
+        }
+        document.startViewTransition(apply)
+    }
+
+    const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href))
+
+    return (
+        <Collapsible
+            open={isOpen}
+            onOpenChange={setIsOpen}
+            className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60"
+        >
+            <nav className="mx-auto flex h-16 w-full max-w-3xl items-center gap-2 px-4">
+                <Link href="/" className="mr-4 flex items-center gap-2 font-semibold tracking-tight">
+                    <span className="flex size-8 items-center justify-center rounded-lg bg-foreground text-sm font-bold text-background">
+                        BT
+                    </span>
+                    <span className="hidden sm:inline">Bevan Tony</span>
+                </Link>
+
+                <div className="hidden items-center gap-1 md:flex">
+                    {NAV_ITEMS.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className={cn(
+                                'rounded-md px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground',
+                                isActive(item.href) && 'bg-muted text-foreground'
+                            )}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+
+                <div className="flex-1" />
+
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Toggle Theme"
+                    onClick={toggleTheme}
+                >
+                    <SunIcon className="dark:hidden" />
+                    <MoonIcon className="hidden dark:block" />
+                </Button>
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    className="md:hidden"
+                    aria-label="Toggle Navigation"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    {isOpen ? <XIcon /> : <MenuIcon />}
+                </Button>
+            </nav>
+            <CollapsibleContent className="md:hidden">
+                <div className="mx-auto flex max-w-3xl flex-col gap-1 px-4 pb-4">
+                    {NAV_ITEMS.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={() => setIsOpen(false)}
+                            className={cn(
+                                'rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground',
+                                isActive(item.href) && 'bg-muted text-foreground'
+                            )}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+            </CollapsibleContent>
+        </Collapsible>
+    )
+}
+
+export default Navbar
