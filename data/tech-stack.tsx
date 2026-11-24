@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { DiCss3, DiReact } from 'react-icons/di'
-import { SiMysql, SiPostgresql, SiNextdotjs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript } from 'react-icons/si'
+import { SiMysql, SiPostgresql, SiNextdotjs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript, SiFrappe } from 'react-icons/si'
 import { BiPyramid } from 'react-icons/bi'
 import { IoLogoPython, IoLogoHtml5 } from 'react-icons/io'
 
@@ -13,6 +13,7 @@ export const TECH_STACK: TechGroup[] = [
     {
         title: 'Frameworks',
         items: [
+            { icon: <SiFrappe />, label: 'Frappe' },
             { icon: <SiNextdotjs />, label: 'Nextjs' },
             { icon: <DiReact />, label: 'Reactjs' },
             { icon: <SiDjango />, label: 'Django' },
