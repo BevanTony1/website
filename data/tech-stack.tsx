@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { DiCss3, DiReact } from 'react-icons/di'
-import { SiMysql, SiPostgresql, SiNextdotjs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript, SiFrappe, SiDrizzle, SiGitlab, SiVercel, SiSupabase, SiNuxt } from 'react-icons/si'
+import { SiMysql, SiPostgresql, SiNextdotjs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript, SiFrappe, SiDrizzle, SiGitlab, SiVercel, SiSupabase, SiNuxt, SiClaude } from 'react-icons/si'
+import { RiOpenaiFill } from 'react-icons/ri'
 import { FaAws } from 'react-icons/fa'
 import { BiPyramid } from 'react-icons/bi'
 import { IoLogoPython, IoLogoHtml5 } from 'react-icons/io'
@@ -46,6 +47,13 @@ export const TECH_STACK: TechGroup[] = [
             { icon: <SiFirebase />, label: 'Firebase' },
             { icon: <SiPostgresql />, label: 'Postgres' },
             { icon: <SiMysql />, label: 'Mysql' },
+        ],
+    },
+    {
+        title: 'AI Tools',
+        items: [
+            { icon: <SiClaude />, label: 'Claude' },
+            { icon: <RiOpenaiFill />, label: 'Codex' },
         ],
     },
 ]
