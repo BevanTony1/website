@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { MailIcon, PhoneIcon, SendIcon } from "lucide-react";
+import { toast } from "sonner";
+import { SendIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -19,19 +20,26 @@ const Contact = () => {
   const { register, handleSubmit, reset } = useForm<Inputs>();
 
   const sendEmail = async (data: Inputs) => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
-      fetch("/api/email", {
+      const res = await fetch("/api/email", {
         body: JSON.stringify(data),
         headers: { "Content-type": "application/json" },
         method: "POST",
       });
+      if (!res.ok) throw new Error("Request failed");
 
+      toast.success("Message sent!", {
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      reset();
+    } catch {
+      toast.error("Couldn't send your message", {
+        description: "Please try again in a moment.",
+      });
+    } finally {
       setIsLoading(false);
-    } catch (err) {
-      console.log(err);
     }
-    reset();
   };
 
   return (

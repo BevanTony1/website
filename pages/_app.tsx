@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/next'
 import Providers from '@/components/Providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Navbar />
         <Component {...pageProps} />
         <Footer />
+        <Toaster position="bottom-right" />
         <Analytics />
       </SWRConfig>
     </Providers>
