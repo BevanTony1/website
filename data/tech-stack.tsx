@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { DiCss3, DiReact } from 'react-icons/di'
-import { SiMysql, SiPostgresql, SiNextdotjs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript, SiFrappe } from 'react-icons/si'
+import { SiMysql, SiPostgresql, SiNextdotjs, SiJavascript, SiDjango, SiSass, SiGithub, SiTrello, SiFirebase, SiTypescript, SiFrappe, SiDrizzle, SiGitlab, SiVercel, SiSupabase, SiNuxt } from 'react-icons/si'
+import { FaAws } from 'react-icons/fa'
 import { BiPyramid } from 'react-icons/bi'
 import { IoLogoPython, IoLogoHtml5 } from 'react-icons/io'
 
@@ -15,6 +16,7 @@ export const TECH_STACK: TechGroup[] = [
         items: [
             { icon: <SiFrappe />, label: 'Frappe' },
             { icon: <SiNextdotjs />, label: 'Nextjs' },
+            { icon: <SiNuxt />, label: 'Nuxt' },
             { icon: <DiReact />, label: 'Reactjs' },
             { icon: <SiDjango />, label: 'Django' },
         ],
@@ -34,10 +36,15 @@ export const TECH_STACK: TechGroup[] = [
         title: 'Tools',
         items: [
             { icon: <SiGithub />, label: 'Github' },
+            { icon: <SiGitlab />, label: 'GitLab' },
+            { icon: <FaAws />, label: 'AWS' },
+            { icon: <SiVercel />, label: 'Vercel' },
             { icon: <SiTrello />, label: 'Trello' },
             { icon: <BiPyramid />, label: 'Prisma' },
+            { icon: <SiDrizzle />, label: 'Drizzle' },
+            { icon: <SiSupabase />, label: 'Supabase' },
             { icon: <SiFirebase />, label: 'Firebase' },
-            { icon: <SiPostgresql />, label: 'Posgres' },
+            { icon: <SiPostgresql />, label: 'Postgres' },
             { icon: <SiMysql />, label: 'Mysql' },
         ],
     },

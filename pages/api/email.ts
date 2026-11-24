@@ -1,27 +1,29 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import Mailgun from 'mailgun.js'
+import type { NextApiRequest, NextApiResponse } from "next";
+import { Resend } from "resend";
 
-const apiKey = process.env.MAILGUN_API_KEY as string;
-const domain = process.env.DOMAIN as string;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const mailgun = new Mailgun(FormData).client({ username: 'api', key: apiKey });
+interface Body {
+  email: string;
+  text: string;
+  subject: string;
+}
 
-export default async function name(req: NextApiRequest, res: NextApiResponse) {
+interface EmailRequest extends NextApiRequest {
+  body: Body;
+}
 
-    let response;
-
-
-    try {
-      response = await mailgun.messages.create(domain, {
-        to: "medranobevantony@gmail.com",
-        from: req.body.email,
-        subject: req.body.name,
-        text: req.body.text,
-      });
-    } catch (err) {
-      const error = err as { status?: number; message?: string };
-      return res.status(error.status || 500).json({ error: error.message });
-    }
-
-    return res.status(200).json({ result: response.message });
-};
+export default async function handler(req: EmailRequest, res: NextApiResponse) {
+  const body = req.body;
+  const { data, error } = await resend.emails.send({
+    from: "Portfolio Contact <onboarding@resend.dev>",
+    to: "medranobevantony@gmail.com",
+    replyTo: body.email,
+    subject: body.subject,
+    text: `From: ${body.email}\n\n${body.text}`,
+  });
+  if (error) {
+    return res.status(500).json({ error: error.message });
+  }
+  return res.status(200).json({ data });
+}
