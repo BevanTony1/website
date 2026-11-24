@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { SWRConfig } from 'swr'
+import { Analytics } from '@vercel/analytics/next'
 import Providers from '@/components/Providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -28,6 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Navbar />
         <Component {...pageProps} />
         <Footer />
+        <Analytics />
       </SWRConfig>
     </Providers>
   )
